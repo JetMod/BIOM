@@ -1,0 +1,155 @@
+@use "sass:map";
+@use 'sass:list';
+
+$mobile-breakpoint: 900;
+
+/* Цвета */
+$color-main: #e5ff78;
+$color-white: #fff;
+$color-bg-primary: #e5e6e2;
+$color-bg-secondary: #61635c;
+$color-text-primary: #000;
+$color-text-secondary: #565656;
+$color-border: #a4a5a0;
+$color-error: #eb8974;
+
+/* Цвета */
+
+/* Типографика */
+$font-family-primary: "Onest", sans-serif;
+$font-family-secondary: "Nunito", sans-serif;
+
+$default-font-size: (
+  xs: (
+    desktop: (
+      16px,
+      140%,
+    ),
+    mobile: (
+      14px,
+      140%,
+    ),
+  ),
+  s: (
+    desktop: (
+      19px,
+      140%,
+    ),
+    mobile: (
+      16px,
+      140%,
+    ),
+  ),
+  m: (
+    desktop: (
+      24px,
+      140%,
+    ),
+    mobile: (
+      20px,
+      140%,
+    ),
+  ),
+  l: (
+    desktop: (
+      32px,
+      140%,
+    ),
+    mobile: (
+      26px,
+      140%,
+    ),
+  ),
+  xl: (
+    desktop: (
+      44px,
+      118%,
+      -1.32px,
+    ),
+    mobile: (
+      32px,
+      118%,
+      -1.32px,
+    ),
+  ),
+  xxl: (
+    desktop: (
+      60px,
+      118%,
+      -1.8px,
+    ),
+    mobile: (
+      36px,
+      118%,
+      -1.8px,
+    ),
+  ),
+  xxxl: (
+    desktop: (
+      76px,
+      99%,
+      -2.28px,
+    ),
+    mobile: (
+      40px,
+      99%,
+      -2.28px,
+    ),
+  ),
+);
+
+/* Типографика */
+
+/* Миксины */
+@mixin font-size($size, $weight: null, $custom-sizes: null) {
+  $desktop: map.get($default-font-size, $size, "desktop");
+  $mobile: map.get($default-font-size, $size, "mobile");
+
+  @include make-font-size($desktop, $weight);
+
+  $mobile_included: 0;
+
+  @if $custom-sizes {
+    @each $breakpoint, $font-size in $custom-sizes {
+      @if $breakpoint > $mobile-breakpoint {
+        @media screen and (max-width: ($breakpoint + "px")) {
+          @include make-font-size($font-size, $weight);
+        }
+      } @else {
+        @if $mobile_included == 0 {
+          $mobile_included: 1;
+
+          @media screen and (max-width: ($mobile-breakpoint + "px")) {
+            @include make-font-size($mobile, $weight);
+          }
+        }
+
+        @media screen and (max-width: ($breakpoint + "px")) {
+          @include make-font-size($font-size, $weight);
+        }
+      }
+    }
+  } @else {
+    @media screen and (max-width: ($mobile-breakpoint + "px")) {
+      @include make-font-size($mobile, $weight);
+    }
+  }
+}
+
+@mixin make-font-size($fs-font-size, $weight) {
+  font-size: list.nth($fs-font-size, 1);
+
+  @if (list.length($fs-font-size) > 1) {
+    line-height: list.nth($fs-font-size, 2);
+  }
+
+  @if (list.length($fs-font-size) > 2) {
+    letter-spacing: list.nth($fs-font-size, 3);
+  }
+
+  @if ($weight) {
+    font-weight: $weight;
+  }
+}
+
+/* Миксины */

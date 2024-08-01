@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "stylelint": "^16.7.0",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard-scss": "^13.1.0",
+    "stylelint-order": "^6.0.4",
+    "stylelint-scss": "^6.4.1"
+  }
+}

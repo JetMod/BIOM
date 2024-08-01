@@ -1,0 +1,55 @@
+.button {
+  width: fit-content;
+  color: $color-text-primary;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.03);
+  }
+
+  &_view_primary {
+    background: $color-main;
+  }
+
+  &_view_secondary {
+    border: 1px solid #A4A5A0;
+  }
+
+  &_size_large {
+    height: 56px;
+    padding: 8px 40px;
+
+    @include font-size("s", 500);
+  }
+
+  &_size_medium {
+    height: 48px;
+    padding: 8px 30px;
+
+    @include font-size("s", 500);
+  }
+
+  &_size_small {
+    height: 40px;
+    padding: 8px 20px;
+
+    @include font-size("xs", 500);
+  }
+}
+
+@media screen and (max-width: ($mobile-breakpoint + "px")) {
+  .button {
+    &_size_large {
+      height: 48px;
+      padding: 8px 40px;
+    }
+
+    &_size_medium {
+      height: 44px;
+      padding: 8px 30px;
+    }
+  }
+}
