@@ -460,42 +460,322 @@ body {
   }
 }
 
+.investment{
+    min-height: auto;
+    padding: 88px 0px;
+    background-color: $color-white;
+
+  &__cards{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+  }
+  &__card{
+    width: 100%;
+    max-width: 380px;
+  }
+
+  &__button{
+    width: 100%;
+    max-width: 380px;
+    margin-bottom: 4px;
+    padding: 8px 16px;
+    color: $color-text-primary;
+    @include font-size("s", 500);
+    text-align: center;
+    background: $color-bg-primary;
+    border-radius: 24px;
+  }
+
+  &__button_2{
+    width: 100%;
+    max-width: 380px;
+    padding: 8px 16px;
+    color: var(--text-001);
+    @include font-size("xxl", 500);
+    text-align: center;
+    background: $color-main;
+    border-radius: 24px;
+}
+
+  &__text{
+    width: 100%;
+    max-width: 380px;
+    height: 96px;
+    padding: 24px 0px 80px 0px;
+    color: $color-text-secondary;
+    border-bottom: 1px solid $color-border;
+    @include font-size("s", 400);
+}
+
+  &__card-list{
+    @include font-size("xs", 400);
+    max-width: 380px;
+    margin: 24px 0 0 0;
+  }
+
+  &__card-list-item{
+    margin: 0 0 10px 0;
+  }
+
+}
+
+.plan{
+    min-height: auto;
+
+  &__flex{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 26px;
+  }
+
+  &__line{
+    width: 100%;
+    max-width: 698px;
+    margin-top: 11px;
+    padding: 20px 10px 10px 10px;
+    border-top: 1px solid $color-border;
+  }
+
+  &__cards{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 56px;
+  }
+  
+  &__card{
+    max-width: 430px;
+    padding: 24px 72px 24px 24px;
+    color: #000;
+    background: #fff;
+    border-inline: var(--t) solid rgba(0, 0, 0, 0);
+    border-radius: calc(var(--r) + var(--t)) / var(--r);
+    mask: radial-gradient(100% 100% at var(--_p) 0, rgba(0, 0, 0, 0) 99%, #000 102%) var(--_p) 100% / var(--t) var(--t) 
+    no-repeat, linear-gradient(#000 0 0) padding-box;
+    --r: 24px;
+    --t: 26px;
+    --с: 0px;
+  }
+
+  &__right {
+    --_p: 100%;
+    border-bottom-right-radius: 0 0;
+    place-self: end;
+  }
+
+  &__h2{
+    color: $color-text-secondary;
+    @include font-size("l", 500);
+  }
+
+  &__h2_span{
+    display: block;
+    color: $color-text-primary;
+  }
+
+  &__p{
+    margin-top: 70px;
+    color: $color-text-secondary;
+    @include font-size("xs", 400);
+    font-family: $font-family-primary; 
+  }
+
+  &__p_2{
+    margin-top: 49px;
+  }
+
+  &__p_3{
+    margin-top: 48px;
+  }
+}
+
+.team{
+  position: relative;
+
+  &__h2{
+    @include font-size("xxl", 500);
+    color:$color-text-primary;
+  }
+
+  &__top{
+    min-height: auto;
+    padding-top: 236px;
+  }
+
+  &__cards{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__img{
+    width: 100%;
+    max-width: 270px;
+    max-height: 300px;
+    border-radius: 24px;
+    filter: grayscale(100%);
+  }
+
+  &__card{
+    margin-top: 40px;
+  }
+
+  &__h4{
+    margin-top: 16px;
+    margin-bottom: 8px;
+    color: $color-text-primary;
+    @include font-size("s", 500);
+  }
+
+  &__p{
+    @include font-size("xs", 400);
+    color: $color-text-secondary;
+  }
+
+}
 
 .feedback{
 
   &__section {
-    padding: 0 0 72px;
+    display: block;
+    min-height: auto;
+    padding: 88px 40px 0px 40px;
     color: $color-white;
-    background: url("../assets/images/feedback.jpg") no-repeat;
+    background: url("../assets/images/main-back.jpg") no-repeat;
     background-size: cover;
 
-    &::before {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background: #fff, rgba(35, 35, 35, 0.3), linear-gradient(270deg, rgba(35, 35, 35, 0.5) 0%, rgba(35, 35, 35, 0.5) 100%);
-      content: ''
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 0; 
+    bottom: 0;
+    left: 0;
+    
     }
 
-    .container {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+  .container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
     }
+  }
+
+  &__h2{
+    flex-shrink: 0;
+    max-width: 489px;  
+    margin-top: 48px;
+  }
+ 
+  &__span{
+    display: block;
+  }
+
+  &__container{
+    width: 100%;
+    max-width: 751px;
+    padding: 48px;
+    background: $color-white;
+    border-radius: 24px;
+  } 
+
+  &__flex{
+    display: flex;
+    justify-content: space-between;
+    margin: 24px 0;
+  }
+
+  &__chexbox_container{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 24px;
+  }
+
+  &__checkbox{
+    width: 26px;
+    height: 27px;
+  }
+  
+  &__text{
+    margin: 0;
+    margin-left: 8px;
+    color: $color-text-primary;
+    @include font-size("s", 400); 
+  }
+
+  &__text_2{
+    margin: 0;
+    margin-left: 8px;
+    color: $color-text-secondary;
+    @include font-size("s", 400);
+  }
+
+  &__text_color{
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+  }
+
+  &__block{
+    padding: 24px 0;
+  }
+
+  &__button{
+    float: right;
+  }
+
+  &__input{  
+    width: 100%;
+    padding: 14.5px 16px;
+    @include font-size("s", 400);
+    border: 1px solid ($color-border);
+    border-radius: 8px;
+  }
+  
+  &__input_text{
+    margin: 0;
+    margin-bottom: 4px;
+    color: #333;
+    @include font-size("xs", 400);
+  }
+  
+  &__input_2{
+    width: 100%;  
+    max-width: 315px;
   }
 }
 
 
+.footer{
+    margin-top: 88px;
+    padding-top: 24px;
+    padding-bottom: 28px;
+    border-top: 1px solid rgba(255, 255, 255, .1);
 
+  &__flex{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
 
-
-.feedback__section{
-  padding: 0 0 72px;
+  &__text{
+    width: 100%;
+    max-width: 380px;
     color: $color-white;
-    background: url("../assets/images/feedback.jpg") no-repeat;
-    background-size: cover;
+    opacity: 0.5;
+    @include font-size("xs", 400);
+  }
 
+  &__container{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    max-width: 380px;
+  }
+
+  &__img{
+  width: 48px;
+  height: 48px;
+  margin-left: 16px;
+  border-radius: 50px;
+  }
 }
