@@ -20,6 +20,17 @@ $font-family-primary: "Onest", sans-serif;
 $font-family-secondary: "Nunito", sans-serif;
 
 $default-font-size: (
+  xm: (
+    desktop: (
+      9px,
+      120%,
+    ),
+    mobile: (
+      9px,
+      120%,
+    ),
+  ),
+
   xs: (
     desktop: (
       16px,

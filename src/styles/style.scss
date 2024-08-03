@@ -717,6 +717,244 @@ body {
   }
 }
 
+.bio{
+  &__section{
+    min-height: auto;
+    padding: 62px 0 0 0 ;
+  }
+
+  &__h2{
+    max-width: 709px;
+    color: $color-text-primary;
+    @include font-size("xxl", 500);
+    letter-spacing: -0.03em;
+  }
+
+  &__p{
+    margin-top: 16px;
+    color: $color-text-secondary;
+    @include font-size("s", 400);
+  }
+
+  &__text{
+    margin-top: 40px;
+    margin-bottom: 60px;
+    color: $color-text-primary;
+    @include font-size("m", 400);
+  }
+
+  &__text_2{
+    margin-bottom: 24px;
+    color: $color-text-secondary;
+    @include font-size("s", 400);
+  }
+
+  &__flex{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__container{
+    margin-top: 26px;
+    margin-right: 18px;
+  }
+
+  &__img{
+    width: 100%;
+    max-width: 533px;
+  }
+
+  &__button{
+    margin-right: 8px;
+    margin-bottom: 8px;
+    padding: 8px 16px;
+    color: $color-text-secondary;
+    @include font-size("s", 400);
+    background: $color-white;
+    border-radius: 50px;
+  }
+
+  &__button_flex{
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.info{
+
+  &__section{
+  position: relative;
+  min-height: auto;
+  padding: 88px 0px;
+  background: url("../assets/images/info__fon.jpg") no-repeat;
+  background-size: cover;
+  }
+  
+  &__h2{
+    @include font-size("xxl", 500);
+    color: $color-white;
+  }
+
+  &__p{
+    width: 100%;
+    max-width: 490px;
+    margin-top: 40px;
+    color: $color-white;
+    @include font-size("m", 400);
+  }
+
+  &__cards{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 191px;
+   
+  }
+  &__card{
+    width: 100%;
+    max-width: 380px;
+  }
+
+  &__text{
+    @include font-size("s", 500);
+    height: 108px;
+    color: $color-white;
+  }
+
+  &__text_p{
+    margin-top: 47px;
+    padding: 16px 0px 0px 0px;
+    color: $color-white;
+    border-top: 1px solid rgba(255, 255, 255, 0.6);
+    @include font-size("xs", 500);
+  }
+
+}
+
+.advantages{
+
+  &__cards{
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+  
+  }
+
+  &__card{
+    width: 100%;
+    max-width: 112px;
+    margin-right: 8px;
+    padding: 24px 8px 13px 8px;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  &__margin_left{
+    margin-right: 82px;
+  }
+
+  &__img{
+    display: flex;
+    margin: 0 auto;
+  }
+
+  &__container_img{
+    display: flex;
+    width: 100%;
+    max-width: 96px;
+    height: 44px;
+    margin: 0 auto;
+  }
+
+  &__h4{
+    margin: 4px 0;
+    color: $color-white;
+    @include font-size("s", 900);
+    text-align: center;
+  }
+
+  &__p{
+    max-width: 94px;
+    color: rgba(255, 255, 255, 0.8);
+    @include font-size("xm", 700);
+    letter-spacing: -0.01em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__img_padding{
+    padding: 9.5px 0;
+  }
+}
+
+.interesting{
+
+  &__section{
+    position: relative;
+    min-height: auto;
+    padding: 88px 0px;
+    padding-top: 236px;
+  }
+
+  &__h2{
+    text-align: center;
+  }
+
+  &__cards{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+   
+  }
+
+  &__card{
+    width: 100%;
+    max-width: 600px;
+  }
+
+  &__img{
+    margin-bottom: 24px;
+    border-radius: 24px;
+  }
+
+  &__h3{
+    @include font-size('xl', 500);
+    color: $color-text-primary;
+    letter-spacing: -0.03em;
+  }
+
+  &__p{
+    margin: 8px 0 24px 0;
+    @include font-size('s', 400);
+    color: $color-text-primary;
+  }
+ 
+
+    &__text-list-item {
+        position: relative;
+        margin: 0;
+        margin-bottom: 10px;
+        padding-left: 34px;
+        @include font-size('s', 400);
+  
+        &::before {
+  
+            position: absolute;
+            top: 5px;
+            left: 0;
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background: $color-border;
+  
+            border-radius: 100%;
+            content: '';
+        }
+  
+      
+  }
+}
+
 .investment {
   &__section {
     background-color: $color-white;
