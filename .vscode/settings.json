@@ -2,9 +2,11 @@
     "css.validate": false,
     "less.validate": false,
     "scss.validate": false,
+    "editor.formatOnSave": false, 
     "editor.codeActionsOnSave": {
-      "source.fixAll.stylelint": "always"
-    },
+      "source.fixAll.stylelint": "explicit"
+    }, 
+    "files.autoSaveDelay": 500,
     "compile-hero.disable-compile-files-on-did-save-code": true,
     "liveSassCompile.settings.autoprefix": [],
     "liveSassCompile.settings.useNewCompiler": false
