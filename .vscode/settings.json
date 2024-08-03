@@ -3,9 +3,8 @@
     "less.validate": false,
     "scss.validate": false,
     "editor.codeActionsOnSave": {
-        "source.fixAll.stylelint": "explicit"
-    },   
-
+      "source.fixAll.stylelint": "always"
+    },
     "compile-hero.disable-compile-files-on-did-save-code": true,
     "liveSassCompile.settings.autoprefix": [],
     "liveSassCompile.settings.useNewCompiler": false
