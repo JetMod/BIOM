@@ -1,8 +1,8 @@
-@import url("./reset");
-@import url("./main");
-@import url("./components/inputs");
-@import url("./components/checkboxes");
-@import url("./components/lists");
+@import "./_reset";
+@import "./_main.scss";
+@import "./components/_inputs.scss";
+@import "./components/_checkboxes.scss";
+@import "./components/_lists.scss";
 
 $section-v-padding: 88px;
 $section-h-padding: 0;

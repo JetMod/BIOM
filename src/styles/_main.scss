@@ -1,5 +1,5 @@
 @use "sass:map";
-@use 'sass:list';
+@use "sass:list";
 
 $mobile-breakpoint: 900;
 
@@ -115,7 +115,9 @@ $default-font-size: (
         @media screen and (max-width: ($breakpoint + "px")) {
           @include make-font-size($font-size, $weight);
         }
-      } @else {
+      }
+
+      @else {
         @if $mobile_included == 0 {
           $mobile_included: 1;
 
@@ -129,7 +131,9 @@ $default-font-size: (
         }
       }
     }
-  } @else {
+  }
+
+  @else {
     @media screen and (max-width: ($mobile-breakpoint + "px")) {
       @include make-font-size($mobile, $weight);
     }
