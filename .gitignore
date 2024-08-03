@@ -1,5 +1,5 @@
 
 /node_modules
-src/styles/style.css
-src/styles/style.min.css
+/src/styles/style.css
+/src/styles/style.min.css
 package-lock.json
