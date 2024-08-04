@@ -7,10 +7,12 @@
 $section-v-padding: 88px;
 $section-h-padding: 0;
 $section-padding: $section-v-padding $section-h-padding;
+$section-panel-height: 140px;
 
 $section-v-padding-m: 44px;
 $section-h-padding-m: 0;
 $section-padding-m: $section-v-padding-m $section-h-padding-m;
+$section-panel-height-m: 332px;
 
 html {
   height: 100%;
@@ -31,9 +33,6 @@ body {
 }
 
 .section {
-  $section-panel-height: 140px;
-  $section-panel-height-m: 332px;
-
   position: relative;
   display: flex;
   padding: $section-padding;
@@ -451,6 +450,10 @@ body {
 }
 
 .slider {
+  &__section {
+    background: #252525;
+  }
+
   &__main {
     display: flex;
     justify-content: space-between;
@@ -458,9 +461,10 @@ body {
 
     &::before {
       position: absolute;
-      inset: 0;
+      z-index: 1;
       background: rgb(35 35 35 / 30%);
       content: "";
+      inset: $section-panel-height 0 0 0;
     }
   }
 
@@ -476,6 +480,7 @@ body {
     cursor: pointer;
 
     &-texts {
+      z-index: 2;
       display: flex;
       flex-direction: column;
       width: 100%;
@@ -491,12 +496,12 @@ body {
 
     &-img {
       position: absolute;
-      top: 0;
+      top: $section-panel-height;
       right: 0;
       left: 0;
-      z-index: -1;
+      z-index: 0;
       width: 100%;
-      height: 100%;
+      height: calc(100% - $section-panel-height);
       object-fit: cover;
       opacity: 0;
       transition: all 0.6s ease;
@@ -532,6 +537,37 @@ body {
 
     &:hover &-texts {
       opacity: 1;
+    }
+  }
+
+  @media screen and (max-width: ($mobile-breakpoint + "px")) {
+    &__main {
+      padding-top: 288px;
+
+      &::before {
+        top: $section-panel-height-m;
+        background: linear-gradient(180deg, rgb(35 35 35 / 0%) 0%, #232323 100%);
+      }
+    }
+
+    &__card {
+      flex-shrink: 0;
+      width: calc(100% - 40px);
+      height: 420px;
+      box-shadow: none;
+
+      &-img {
+        top: $section-panel-height-m;
+        height: 350px;
+      }
+
+      & &-texts {
+        opacity: 1;
+      }
+
+      & + & {
+        margin-left: 8px;
+      }
     }
   }
 }
