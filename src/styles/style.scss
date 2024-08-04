@@ -32,6 +32,7 @@ body {
 
 .section {
   $section-panel-height: 140px;
+  $section-panel-height-m: 332px;
 
   position: relative;
   display: flex;
@@ -102,6 +103,34 @@ body {
   @media screen and (max-width: ($mobile-breakpoint + "px")) {
     & {
       padding: $section-padding-m;
+    }
+
+    &__top_panel {
+      padding-top: $section-v-padding-m + $section-panel-height-m;
+    }
+
+    &__bottom_panel {
+      padding-bottom: $section-v-padding-m + $section-panel-height-m;
+    }
+
+    &__panel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: $section-panel-height-m;
+      padding: 44px 20px;
+      text-align: center;
+
+      &-logo,
+      &-text {
+        margin-right: 0;
+        margin-bottom: 24px;
+      }
+
+      .button {
+        width: 100%;
+        padding: 8px 19px;
+      }
     }
   }
 }
