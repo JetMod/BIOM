@@ -104,6 +104,18 @@ body {
       padding: $section-padding-m;
     }
 
+    &__header-column {
+      width: 100%;
+
+      & + & {
+        margin-left: 0;
+      }
+
+      &:empty {
+        display: none;
+      }
+    }
+
     &__top_panel {
       padding-top: $section-v-padding-m + $section-panel-height-m;
     }
@@ -547,7 +559,7 @@ body {
 
       &::before {
         top: $section-panel-height-m;
-        background: linear-gradient(180deg, rgb(35 35 35 / 0%) 0%, #232323 100%);
+        background: linear-gradient(180deg, rgb(35 35 35 / 0%) 20%, #232323 46.14%);
       }
     }
 
@@ -559,7 +571,7 @@ body {
 
       &-img {
         top: $section-panel-height-m;
-        height: 350px;
+        height: 380px;
       }
 
       & &-texts {
@@ -606,6 +618,7 @@ body {
       img {
         width: 100%;
         height: 100%;
+        object-fit: cover;
       }
 
       svg {
@@ -639,6 +652,41 @@ body {
 
     .button {
       margin-top: auto;
+    }
+  }
+
+  @media screen and (max-width: ($mobile-breakpoint + "px")) {
+    &__header {
+      margin-bottom: 24px;
+    }
+
+    &__cards {
+      flex-direction: column;
+    }
+
+    &__card {
+      --column-gap: 0;
+      --column-width: 100%;
+
+      &:nth-child(2),
+      &:nth-child(3) {
+        padding-top: 0;
+      }
+
+      & + & {
+        margin-top: 32px;
+      }
+
+      &-image,
+      &-title,
+      &-list {
+        margin-bottom: 12px;
+      }
+
+      .button {
+        width: 100%;
+        margin-top: 0;
+      }
     }
   }
 }
@@ -728,6 +776,51 @@ body {
 
     .button {
       margin-left: 8px;
+    }
+  }
+
+  @media screen and (max-width: ($mobile-breakpoint + "px")) {
+    &__header {
+      margin-bottom: 24px;
+    }
+
+    &__flats {
+      flex-direction: column;
+
+      &:first-of-type {
+        margin-bottom: 8px;
+      }
+    }
+
+    &__flat {
+      --gap: 0;
+      --column-width: 100%;
+
+      height: 340px;
+      padding: 12px;
+
+      &:first-of-type {
+        margin-bottom: 8px;
+      }
+
+      &-tags {
+        display: block;
+      }
+
+      &-tag {
+        display: inline-block;
+        padding: 8px 16px;
+
+        & + & {
+          margin-left: 4px;
+        }
+      }
+
+      .button {
+        width: 100%;
+        margin-top: 16px;
+        margin-left: 0;
+      }
     }
   }
 }
@@ -896,6 +989,25 @@ body {
 
     &-list {
       @include font-size("s");
+    }
+  }
+}
+
+.map {
+  &__section {
+    height: 780px;
+    max-height: 100vh;
+    padding: 0;
+  }
+
+  &__image {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  @media screen and (max-width: ($mobile-breakpoint + "px")) {
+    &__section {
+      max-height: 480px;
     }
   }
 }

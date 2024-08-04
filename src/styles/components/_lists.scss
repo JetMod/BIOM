@@ -1,34 +1,42 @@
-ul, ol {
-    margin: 0;
+ul,
+ol {
+  margin: 0;
 }
 
 ul {
-    li {
-        position: relative;
-        padding-left: 34px;
-        margin: 0;
+  li {
+    position: relative;
+    margin: 0;
+    padding-left: 34px;
 
-        &::before {
-            content: '';
-
-            position: absolute;
-            top: 5px;
-            left: 0;
-
-            display: inline-block;
-            width: 16px;
-            height: 16px;
-
-            border-radius: 100%;
-            background: $color-border;
-        }
-
-        & + li {
-            margin-top: 10px;
-        }
+    &::before {
+      position: absolute;
+      top: 5px;
+      left: 0;
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      background: $color-border;
+      border-radius: 100%;
+      content: "";
     }
+
+    & + li {
+      margin-top: 10px;
+    }
+  }
 }
 
 ol {
-    padding-left: 24px;
+  padding-left: 24px;
+}
+
+@media screen and (max-width: ($mobile-breakpoint + "px")) {
+  ul {
+    li {
+      &::before {
+        top: 3px;
+      }
+    }
+  }
 }
