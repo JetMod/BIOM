@@ -1,7 +1,7 @@
 @use "sass:map";
 @use "sass:list";
 
-$mobile-breakpoint: 900;
+$mobile-breakpoint: 768;
 
 /* Цвета */
 $color-main: #e5ff78;
@@ -30,7 +30,6 @@ $default-font-size: (
       120%,
     ),
   ),
-
   xs: (
     desktop: (
       16px,

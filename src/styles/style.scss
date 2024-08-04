@@ -8,6 +8,10 @@ $section-v-padding: 88px;
 $section-h-padding: 0;
 $section-padding: $section-v-padding $section-h-padding;
 
+$section-v-padding-m: 44px;
+$section-h-padding-m: 0;
+$section-padding-m: $section-v-padding-m $section-h-padding-m;
+
 html {
   height: 100%;
 }
@@ -94,13 +98,19 @@ body {
   &__bottom_panel &__panel {
     bottom: 0;
   }
+
+  @media screen and (max-width: ($mobile-breakpoint + "px")) {
+    & {
+      padding: $section-padding-m;
+    }
+  }
 }
 
 .header {
   display: flex;
   align-items: center;
   height: 85px;
-  padding: 16px;
+  padding: 16px 0;
 
   &__left-block,
   &__right-block {
@@ -126,6 +136,14 @@ body {
   &__request-button {
     background: rgb(255 255 255 / 20%);
     backdrop-filter: blur(44px);
+  }
+
+  @media screen and (max-width: ($mobile-breakpoint + "px")) {
+    & {
+      height: 56px;
+      margin-bottom: 66px;
+      padding: 8px 0;
+    }
   }
 }
 
@@ -177,12 +195,61 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+
+    @include font-size("xs", 500);
   }
 
   &__meta + &__meta {
     margin-left: 60px;
+  }
 
-    @include font-size("xs", 500);
+  @media screen and (max-width: ($mobile-breakpoint + "px")) {
+    &__section {
+      min-height: 60vh;
+
+      .container {
+        justify-content: flex-start;
+      }
+    }
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    &__subheader,
+    &__header {
+      display: block;
+      text-align: center;
+    }
+
+    &__header {
+      margin-bottom: 20px;
+    }
+
+    &__subheader {
+      margin-bottom: 8px;
+    }
+
+    &__bottom {
+      flex-direction: column;
+      flex-grow: 1;
+
+      .button {
+        width: 100%;
+      }
+    }
+
+    &__meta-block {
+      flex-wrap: wrap;
+      justify-content: center;
+      column-gap: 20px;
+    }
+
+    &__meta + &__meta {
+      margin-left: 0;
+    }
   }
 }
 
@@ -228,6 +295,12 @@ body {
     --column-gap: 60px;
     --column-width: calc((100% - (var(--column-gap) * 3)) / 4);
 
+    @media screen and (width <= 1200px) {
+      & {
+        --column-gap: 30px;
+      }
+    }
+
     position: relative;
     display: flex;
     flex-direction: column;
@@ -249,12 +322,6 @@ body {
 
     &:nth-of-type(3) {
       height: 86%;
-    }
-
-    @media screen and (width <= 1200px) {
-      & {
-        --column-gap: 30px;
-      }
     }
 
     &-big-text {
@@ -300,6 +367,55 @@ body {
 
     &:hover {
       color: $color-white;
+    }
+  }
+
+  @media screen and (max-width: ($mobile-breakpoint + "px")) {
+    &__section {
+      .container {
+        justify-content: flex-start;
+      }
+    }
+
+    &__text,
+    &__header {
+      margin-bottom: 24px;
+    }
+
+    &__container {
+      flex-direction: column;
+      height: unset;
+    }
+
+    &__text {
+      position: unset;
+      max-width: unset;
+    }
+
+    &__column {
+      width: 100%;
+      height: unset;
+      padding: 16px;
+      color: $color-white;
+
+      &:nth-of-type(1),
+      &:nth-of-type(2),
+      &:nth-of-type(3) {
+        height: unset;
+      }
+
+      & + & {
+        margin-top: 8px;
+      }
+
+      &::before,
+      &-img {
+        opacity: 1;
+      }
+
+      &-big-text {
+        margin-bottom: 34px;
+      }
     }
   }
 }
@@ -717,148 +833,155 @@ body {
   }
 }
 
-.bio{
-  &__section{
+.bio {
+  &__section {
     min-height: auto;
-    padding: 62px 0 0 0 ;
+    padding: 62px 0 0;
   }
 
-  &__h2{
+  &__h2 {
     max-width: 709px;
     color: $color-text-primary;
+
     @include font-size("xxl", 500);
+
     letter-spacing: -0.03em;
   }
 
-  &__p{
+  &__p {
     margin-top: 16px;
     color: $color-text-secondary;
+
     @include font-size("s", 400);
   }
 
-  &__text{
+  &__text {
     margin-top: 40px;
     margin-bottom: 60px;
     color: $color-text-primary;
+
     @include font-size("m", 400);
   }
 
-  &__text_2{
+  &__text_2 {
     margin-bottom: 24px;
     color: $color-text-secondary;
+
     @include font-size("s", 400);
   }
 
-  &__flex{
+  &__flex {
     display: flex;
     justify-content: space-between;
   }
 
-  &__container{
+  &__container {
     margin-top: 26px;
     margin-right: 18px;
   }
 
-  &__img{
+  &__img {
     width: 100%;
     max-width: 533px;
   }
 
-  &__button{
+  &__button {
     margin-right: 8px;
     margin-bottom: 8px;
     padding: 8px 16px;
     color: $color-text-secondary;
+
     @include font-size("s", 400);
+
     background: $color-white;
     border-radius: 50px;
   }
 
-  &__button_flex{
+  &__button_flex {
     display: flex;
     flex-wrap: wrap;
   }
 }
 
-.info{
-
-  &__section{
-  position: relative;
-  min-height: auto;
-  padding: 88px 0px;
-  background: url("../assets/images/info__fon.jpg") no-repeat;
-  background-size: cover;
+.info {
+  &__section {
+    position: relative;
+    min-height: auto;
+    padding: 88px 0;
+    background: url("../assets/images/info__fon.jpg") no-repeat;
+    background-size: cover;
   }
-  
-  &__h2{
+
+  &__h2 {
     @include font-size("xxl", 500);
+
     color: $color-white;
   }
 
-  &__p{
+  &__p {
     width: 100%;
     max-width: 490px;
     margin-top: 40px;
     color: $color-white;
+
     @include font-size("m", 400);
   }
 
-  &__cards{
+  &__cards {
     display: flex;
     justify-content: space-between;
     margin-top: 191px;
-   
   }
-  &__card{
+
+  &__card {
     width: 100%;
     max-width: 380px;
   }
 
-  &__text{
+  &__text {
     @include font-size("s", 500);
+
     height: 108px;
     color: $color-white;
   }
 
-  &__text_p{
+  &__text_p {
     margin-top: 47px;
-    padding: 16px 0px 0px 0px;
+    padding: 16px 0 0;
     color: $color-white;
-    border-top: 1px solid rgba(255, 255, 255, 0.6);
+    border-top: 1px solid rgb(255 255 255 / 60%);
+
     @include font-size("xs", 500);
   }
-
 }
 
-.advantages{
-
-  &__cards{
+.advantages {
+  &__cards {
     position: absolute;
     top: 0;
     right: 0;
     display: flex;
     justify-content: space-between;
-  
   }
 
-  &__card{
+  &__card {
     width: 100%;
     max-width: 112px;
     margin-right: 8px;
-    padding: 24px 8px 13px 8px;
-    background: rgba(255, 255, 255, 0.05);
+    padding: 24px 8px 13px;
+    background: rgb(255 255 255 / 5%);
   }
 
-  &__margin_left{
+  &__margin_left {
     margin-right: 82px;
   }
 
-  &__img{
+  &__img {
     display: flex;
     margin: 0 auto;
   }
 
-  &__container_img{
+  &__container_img {
     display: flex;
     width: 100%;
     max-width: 96px;
@@ -866,92 +989,93 @@ body {
     margin: 0 auto;
   }
 
-  &__h4{
+  &__h4 {
     margin: 4px 0;
     color: $color-white;
+
     @include font-size("s", 900);
+
     text-align: center;
   }
 
-  &__p{
+  &__p {
     max-width: 94px;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgb(255 255 255 / 80%);
+
     @include font-size("xm", 700);
+
     letter-spacing: -0.01em;
     text-align: center;
     text-transform: uppercase;
   }
 
-  &__img_padding{
+  &__img_padding {
     padding: 9.5px 0;
   }
 }
 
-.interesting{
-
-  &__section{
+.interesting {
+  &__section {
     position: relative;
     min-height: auto;
-    padding: 88px 0px;
+    padding: 88px 0;
     padding-top: 236px;
   }
 
-  &__h2{
+  &__h2 {
     text-align: center;
   }
 
-  &__cards{
+  &__cards {
     display: flex;
     justify-content: space-between;
     margin-top: 40px;
-   
   }
 
-  &__card{
+  &__card {
     width: 100%;
     max-width: 600px;
   }
 
-  &__img{
+  &__img {
     margin-bottom: 24px;
     border-radius: 24px;
   }
 
-  &__h3{
-    @include font-size('xl', 500);
+  &__h3 {
+    @include font-size("xl", 500);
+
     color: $color-text-primary;
     letter-spacing: -0.03em;
   }
 
-  &__p{
-    margin: 8px 0 24px 0;
-    @include font-size('s', 400);
+  &__p {
+    margin: 8px 0 24px;
+
+    @include font-size("s", 400);
+
     color: $color-text-primary;
   }
- 
 
-    &__text-list-item {
-        position: relative;
-        margin: 0;
-        margin-bottom: 10px;
-        padding-left: 34px;
-        @include font-size('s', 400);
-  
-        &::before {
-  
-            position: absolute;
-            top: 5px;
-            left: 0;
-            display: inline-block;
-            width: 16px;
-            height: 16px;
-            background: $color-border;
-  
-            border-radius: 100%;
-            content: '';
-        }
-  
-      
+  &__text-list-item {
+    position: relative;
+    margin: 0;
+    margin-bottom: 10px;
+    padding-left: 34px;
+
+    @include font-size("s", 400);
+
+    &::before {
+      position: absolute;
+      top: 5px;
+      left: 0;
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      background: $color-border;
+      border-radius: 100%;
+      content: "";
+    }
   }
 }
 
