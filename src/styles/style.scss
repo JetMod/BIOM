@@ -906,7 +906,7 @@ body {
     padding: 62px 0 0;
   }
 
-  &__h2 {
+  &__header_title {
     max-width: 709px;
     color: $color-text-primary;
 
@@ -915,7 +915,7 @@ body {
     letter-spacing: -0.03em;
   }
 
-  &__p {
+  &__desctiption {
     margin-top: 16px;
     color: $color-text-secondary;
 
@@ -952,7 +952,7 @@ body {
     max-width: 533px;
   }
 
-  &__button {
+  &__container_text {
     margin-right: 8px;
     margin-bottom: 8px;
     padding: 8px 16px;
@@ -964,7 +964,7 @@ body {
     border-radius: 50px;
   }
 
-  &__button_flex {
+  &__container_flex {
     display: flex;
     flex-wrap: wrap;
   }
@@ -977,15 +977,27 @@ body {
     padding: 88px 0;
     background: url("../assets/images/info__fon.jpg") no-repeat;
     background-size: cover;
+
+    &::before {
+      position: absolute;
+      inset: 0;
+      background-color: rgb(0 0 0 / 20%);
+      background-image: linear-gradient(0deg, rgb(35 35 35 / 50%) 0%, rgb(35 35 35 / 50%) 100%);
+      content: "";
+    }
   }
 
-  &__h2 {
+  &__fon {
+    z-index: 1;
+  }
+
+  &__header_title {
     @include font-size("xxl", 500);
 
     color: $color-white;
   }
 
-  &__p {
+  &__desctiption {
     width: 100%;
     max-width: 490px;
     margin-top: 40px;
@@ -1056,7 +1068,7 @@ body {
     margin: 0 auto;
   }
 
-  &__h4 {
+  &__title {
     margin: 4px 0;
     color: $color-white;
 
@@ -1065,7 +1077,7 @@ body {
     text-align: center;
   }
 
-  &__p {
+  &__desctiption {
     max-width: 94px;
     color: rgb(255 255 255 / 80%);
 
@@ -1089,7 +1101,7 @@ body {
     padding-top: 236px;
   }
 
-  &__h2 {
+  &__header_title {
     text-align: center;
   }
 
@@ -1116,7 +1128,7 @@ body {
     letter-spacing: -0.03em;
   }
 
-  &__p {
+  &__desctiption {
     margin: 8px 0 24px;
 
     @include font-size("s", 400);
@@ -1162,7 +1174,7 @@ body {
     max-width: 380px;
   }
 
-  &__button {
+  &__container_text {
     width: 100%;
     max-width: 380px;
     margin-bottom: 4px;
@@ -1176,7 +1188,7 @@ body {
     border-radius: 24px;
   }
 
-  &__button_2 {
+  &__container_text_2 {
     width: 100%;
     max-width: 380px;
     padding: 8px 16px;
@@ -1216,12 +1228,11 @@ body {
   &__flex {
     display: flex;
     justify-content: space-between;
-    margin-left: 26px;
   }
 
   &__line {
     width: 100%;
-    max-width: 698px;
+    max-width: 724px;
     margin-top: 11px;
     padding: 20px 10px 10px;
     border-top: 1px solid $color-border;
@@ -1234,41 +1245,35 @@ body {
   }
 
   &__card {
-    max-width: 430px;
+    position: relative;
+    max-width: 380px;
     padding: 24px 72px 24px 24px;
     color: #000;
     background: #fff;
-    border-inline: var(--t) solid rgb(0 0 0 / 0%);
-    border-radius: calc(var(--r) + var(--t)) / var(--r);
-    mask:
-      radial-gradient(100% 100% at var(--_p) 0, rgb(0 0 0 / 0%) 99%, #000 102%) var(--_p) 100% / var(--t) var(--t)
-      no-repeat,
-      linear-gradient(#000 0 0) padding-box;
+    border-radius: 24px 0 0 24px;
 
-    --r: 24px;
-    --t: 26px;
-    --с: 0px;
+    svg {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 48px;
+      color: $color-bg-primary;
+    }
   }
 
-  &__right {
-    --_p: 100%;
-
-    border-bottom-right-radius: 0 0;
-    place-self: end;
-  }
-
-  &__h2 {
+  &__header_title {
     color: $color-text-secondary;
 
     @include font-size("l", 500);
   }
 
-  &__h2_span {
+  &__header_title_span {
     display: block;
     color: $color-text-primary;
   }
 
-  &__p {
+  &__desctiption {
     margin-top: 70px;
     color: $color-text-secondary;
 
@@ -1277,17 +1282,17 @@ body {
     font-family: $font-family-primary;
   }
 
-  &__p_2 {
-    margin-top: 49px;
+  &__desctiption_2 {
+    margin-top: 47px;
   }
 
-  &__p_3 {
-    margin-top: 48px;
+  &__desctiption_3 {
+    margin-top: 69px;
   }
 }
 
 .team {
-  &__h2 {
+  &__header_title {
     @include font-size("xxl", 500);
 
     color: $color-text-primary;
@@ -1315,7 +1320,7 @@ body {
     margin-top: 40px;
   }
 
-  &__h4 {
+  &__name {
     margin-top: 16px;
     margin-bottom: 8px;
     color: $color-text-primary;
@@ -1323,7 +1328,7 @@ body {
     @include font-size("s", 500);
   }
 
-  &__p {
+  &__desctiption {
     @include font-size("xs", 400);
 
     color: $color-text-secondary;
@@ -1342,6 +1347,9 @@ body {
     &::before {
       position: absolute;
       inset: 0;
+      background: rgb(35 35 35 / 30%);
+      background: linear-gradient(270deg, rgb(35 35 35 / 50%) 0%, rgb(35 35 35 / 50%) 100%);
+      content: "";
     }
 
     .container {
@@ -1351,7 +1359,7 @@ body {
     }
   }
 
-  &__h2 {
+  &__header_title {
     flex-shrink: 0;
     max-width: 489px;
     margin-top: 48px;
@@ -1425,6 +1433,10 @@ body {
 
     border: 1px solid ($color-border);
     border-radius: 8px;
+
+    &:focus {
+      border: 2px solid #000;
+    }
   }
 
   &__input_text {
