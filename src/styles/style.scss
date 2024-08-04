@@ -451,6 +451,7 @@ body {
 
 .slider {
   &__section {
+    overflow: hidden;
     background: #252525;
   }
 
