@@ -1144,6 +1144,40 @@ body {
 
     @include font-size("xs", 500);
   }
+
+  @media screen and (max-width: ($mobile-breakpoint + "px")) {
+    &__section {
+      padding: 44px 0;
+    }
+
+    &__fon {
+      padding-top: 275px;
+    }
+
+    &__desctiption {
+      max-width: 100%;
+      margin-top: 24px;
+    }
+
+    &__cards {
+      flex-direction: column;
+      margin-top: 40px;
+    }
+
+    &__card {
+      max-width: 100%;
+    }
+
+    &__text {
+      height: auto;
+      margin: 0;
+    }
+
+    &__text_p {
+      margin: 16px 0 0;
+      padding: 8px 0 0;
+    }
+  }
 }
 
 .advantages {
@@ -1202,6 +1236,36 @@ body {
 
   &__img_padding {
     padding: 9.5px 0;
+  }
+
+  &__row {
+    display: flex;
+  }
+
+  @media screen and (max-width: ($mobile-breakpoint + "px")) {
+    &__margin_left {
+      margin: 0;
+    }
+
+    &__cards {
+      right: auto;
+      display: flex;
+      flex-direction: row;
+      flex-flow: column wrap;
+      align-items: center;
+      justify-content: center;
+      margin-top: 24px;
+    }
+
+    &__card {
+      flex-basis: calc(33.33% - 20px);
+      min-width: 102px;
+    }
+
+    &__row {
+      display: flex;
+      margin-bottom: 6px;
+    }
   }
 }
 
@@ -1268,9 +1332,35 @@ body {
       content: "";
     }
   }
+
+  @media screen and (max-width: ($mobile-breakpoint + "px")) {
+    &__section {
+      padding-top: 44px;
+      padding-bottom: 372px;
+    }
+
+    &__cards {
+      flex-direction: column;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    &__card {
+      margin-top: 30px;
+    }
+
+    &__panel {
+      top: auto !important;
+      bottom: 0;
+    }
+  }
 }
 
 .investment {
+  &__button {
+    display: none;
+  }
+
   &__section {
     background-color: $color-white;
   }
@@ -1288,7 +1378,6 @@ body {
 
   &__container_text {
     width: 100%;
-    max-width: 380px;
     margin-bottom: 4px;
     padding: 8px 16px;
     color: $color-text-primary;
@@ -1302,7 +1391,6 @@ body {
 
   &__container_text_2 {
     width: 100%;
-    max-width: 380px;
     padding: 8px 16px;
     color: var(--text-001);
 
@@ -1315,7 +1403,6 @@ body {
 
   &__text {
     width: 100%;
-    max-width: 380px;
     height: 96px;
     padding: 24px 0 80px;
     color: $color-text-secondary;
@@ -1327,12 +1414,67 @@ body {
   &__card-list {
     @include font-size("xs", 400);
 
-    max-width: 380px;
     margin: 24px 0 0;
   }
 
   &__card-list-item {
     margin: 0 0 10px;
+  }
+
+  @media screen and (max-width: ($mobile-breakpoint + "px")) {
+    &__cards {
+      flex-direction: column;
+      margin-top: 24px;
+    }
+
+    &__card {
+      max-width: 100%;
+      margin-bottom: 20px;
+    }
+
+    &__text {
+      height: auto;
+      margin-top: 4px;
+      padding: 0;
+      border-bottom: none;
+    }
+
+    &__card-list {
+      display: none;
+      margin: 8px 0 0;
+
+      &.show {
+        display: block;
+      }
+    }
+
+    &__img_open {
+      transform: rotate(0deg);
+      transition: transform 0.3s ease-in-out;
+
+      &.open {
+        transform: rotate(180deg);
+      }
+    }
+
+    &__button {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      margin-top: 8px;
+      color: #565656;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 140%;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+    }
+
+    &__img_open {
+      width: 16px;
+      height: 16px;
+      margin-left: 10px;
+    }
   }
 }
 
@@ -1359,6 +1501,7 @@ body {
   &__card {
     position: relative;
     max-width: 380px;
+    height: 340px;
     padding: 24px 72px 24px 24px;
     color: #000;
     background: #fff;
@@ -1386,20 +1529,54 @@ body {
   }
 
   &__desctiption {
+    max-height: 132px;
     margin-top: 70px;
+    overflow: hidden;
     color: $color-text-secondary;
+    font-family: $font-family-primary;
+    text-overflow: ellipsis;
 
     @include font-size("xs", 400);
-
-    font-family: $font-family-primary;
   }
 
   &__desctiption_2 {
+    max-height: 110px;
     margin-top: 47px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__desctiption_3 {
+    max-height: 88px;
     margin-top: 69px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  @media screen and (max-width: ($mobile-breakpoint + "px")) {
+    &__cards {
+      flex-direction: column;
+      margin-top: 16px;
+    }
+
+    &__card {
+      max-width: 100%;
+      height: 242px;
+      margin-top: 8px;
+
+      svg {
+        width: 34px;
+        height: 242px;
+      }
+    }
+
+    &__line {
+      display: none;
+    }
+
+    &__desctiption {
+      margin-top: 10px;
+    }
   }
 }
 
@@ -1430,6 +1607,7 @@ body {
 
   &__card {
     margin-top: 40px;
+    margin-right: 8px;
   }
 
   &__name {
@@ -1444,6 +1622,18 @@ body {
     @include font-size("xs", 400);
 
     color: $color-text-secondary;
+  }
+
+  @media screen and (max-width: ($mobile-breakpoint + "px")) {
+    &__cards {
+      overflow-x: auto;
+    }
+
+    &__card {
+      min-width: 180px;
+      margin-top: 24px;
+      margin-right: 8px;
+    }
   }
 }
 
@@ -1540,6 +1730,7 @@ body {
   &__input {
     width: 100%;
     padding: 14.5px 16px;
+    color: #000;
 
     @include font-size("s", 400);
 
@@ -1563,12 +1754,57 @@ body {
     width: 100%;
     max-width: 315px;
   }
+
+  @media screen and (max-width: ($mobile-breakpoint + "px")) {
+    &__section {
+      padding: 200px 20px 0;
+
+      &::before {
+        background: rgb(35 35 35 / 30%);
+        background: linear-gradient(270deg, rgb(35 35 35 / 50%) 0%, rgb(35 35 35 / 50%) 100%), linear-gradient(180deg, rgb(35 35 35 / 0%) 0%, #232323 100%);
+      }
+
+      .container {
+        flex-direction: column;
+      }
+    }
+
+    &__header_title {
+      margin: 0 0 20px;
+    }
+
+    &__span {
+      display: contents;
+    }
+
+    &__container {
+      padding: 12px;
+    }
+
+    &__flex {
+      flex-direction: column;
+      margin: 24px 0 0;
+    }
+
+    &__chexbox_container {
+      align-items: flex-start;
+    }
+
+    &__input_2 {
+      max-width: 100%;
+      margin-bottom: 24px;
+    }
+
+    &__block {
+      padding: 0;
+    }
+  }
 }
 
 .footer {
   margin-top: 88px;
   padding-top: 24px;
-  padding-bottom: 28px;
+  padding-bottom: 24px;
   border-top: 1px solid rgb(255 255 255 / 10%);
 
   &__flex {
@@ -1598,5 +1834,26 @@ body {
     height: 48px;
     margin-left: 16px;
     border-radius: 50px;
+  }
+
+  @media screen and (max-width: ($mobile-breakpoint + "px")) {
+    margin-top: 44px;
+
+    &__flex {
+      flex-direction: column;
+    }
+
+    &__text {
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    &__container {
+      justify-content: center;
+      margin: 0 auto;
+    }
   }
 }
