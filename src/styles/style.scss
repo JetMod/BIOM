@@ -574,8 +574,9 @@ padding: 0 20px;
 
     &__card {
       flex-shrink: 0;
-      width: calc(100% - 40px);
-      height: 420px;
+      width: 100%;
+      max-width: 280px;
+        height: 420px;
       box-shadow: none;
 
       &-img {
@@ -1016,8 +1017,10 @@ padding: 0 20px;
     display: flex;
     flex-wrap: nowrap;
     width: 100%;
-   
+ 
+    position: relative;
     overflow: hidden;
+    
 
   }
 
@@ -1026,16 +1029,15 @@ padding: 0 20px;
     flex-shrink: 0;
     width: 100%;
 
-    // opacity: 0;
-    // display: none;
-    // transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+    height: 100%;
+    display: none;
+    transition: opacity 0.5s ease-in-out;
 
-  
-
-    // &.active {
-    //   opacity: 1;
-    //   display: flex;
-    // }
+    &.active {
+      opacity: 1;
+      display: flex;
+    }
   
   }
 
@@ -1106,6 +1108,20 @@ padding: 0 20px;
 
 }
 
+&__slide {
+  display: flex;
+ 
+
+  opacity: 1;
+ 
+
+  &.active {
+    opacity: 1;
+    display: flex;
+  }
+
+}
+
 &__image{
   max-width: 320px;
   height: auto;
@@ -1155,18 +1171,27 @@ padding: 0 20px;
     &:hover {
       transform: translateY(-50%) scale(0.96);
     }
+
+    @media screen and (max-width: ($mobile-breakpoint + "px")) {
+      display: none;
+    }
   }
 
 
   .prev {
     left: 20px;
+    backdrop-filter: blur(24px);
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
   }
 
   .next {
-    right: 20px;
+    right: 1%;
+    margin: 0 447px 0 0;
+    backdrop-filter: blur(24px);
+background: rgba(255, 255, 255, 0.2);
+border-radius: 50px;
   }
-
-
 
 
 .area{
@@ -2309,6 +2334,7 @@ width: 72px;
   &__checkbox {
     width: 26px;
     height: 27px;
+   margin: 2px 0 0 0!important;
   }
 
   &__text {

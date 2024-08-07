@@ -452,20 +452,11 @@
         <h2 class="section__header big-slider__header">
           A Home with Resort-Style Living
         </h2>
-        <div class="big-slider__slider">
-          <div class="big-slider__slide">
+        <div class="big-slider__slider carousel">
+          <div class="big-slider__slide  active">
             <div class="big-slider__image">
               <img src="./src/assets/images/big-slider-1.jpg" alt="" srcset="" />
-               <!-- кнопка вперед -->
-            <button class="btn prev">
-              <img src="./src/assets/vectors/next__button_left.svg" alt="" />
-            </button>
-
-            <!-- кнопка назад -->
-            <button class="btn next">
-              <img src="./src/assets/vectors/next__button_right.svg" alt="" />
-            </button>
-            <div class="dots"></div>
+             
             </div>
             <div class="big-slider__text">
               <span class="big-slider__text-number big-slider__mobile-text">1 / 4</span>
@@ -485,19 +476,11 @@
               </ul>
             </div>
           </div>
+       
           <div class="big-slider__slide">
             <div class="big-slider__image">
               <img src="./src/assets/images/big-slider-22.jpg" alt="" srcset="" />
-              <!-- кнопка вперед -->
-              <button class="btn prev">
-                <img src="./src/assets/vectors/next__button_left.svg" alt="" />
-              </button>
-  
-              <!-- кнопка назад -->
-              <button class="btn next">
-                <img src="./src/assets/vectors/next__button_right.svg" alt="" />
-              </button>
-              <div class="dots"></div>
+             
             </div>
             <div class="big-slider__text">
               <span class="big-slider__text-number big-slider__mobile-text">2 / 4</span>
@@ -513,16 +496,7 @@
           <div class="big-slider__slide">
             <div class="big-slider__image">
               <img src="./src/assets/images/big-slider-3.jpg" alt="" srcset="" />
-               <!-- кнопка вперед -->
-               <button class="btn prev">
-                <img src="./src/assets/vectors/next__button_left.svg" alt="" />
-              </button>
-  
-              <!-- кнопка назад -->
-              <button class="btn next">
-                <img src="./src/assets/vectors/next__button_right.svg" alt="" />
-              </button>
-              <div class="dots"></div>
+              
             </div>
             <div class="big-slider__text">
               <span class="big-slider__text-number big-slider__mobile-text">3 / 4</span>
@@ -542,16 +516,7 @@
             <div class="big-slider__image">
               
               <img src="./src/assets/images/big-slider-2.jpg" alt="" srcset="" />
-                <!-- кнопка вперед -->
-            <button class="btn prev">
-              <img src="./src/assets/vectors/next__button_left.svg" alt="" />
-            </button>
-
-            <!-- кнопка назад -->
-            <button class="btn next">
-              <img src="./src/assets/vectors/next__button_right.svg" alt="" />
-            </button>
-            <div class="dots"></div>
+              
             </div>
             <div class="big-slider__text">
               <span class="big-slider__text-number big-slider__mobile-text">4 / 4</span>
@@ -564,6 +529,21 @@
             </div>
           </div>
 
+          
+
+  <!-- кнопка вперед -->
+  <button class="btn prev">
+    <img src="./src/assets/vectors/next__button_left.svg" alt="" />
+  </button>
+
+  <!-- кнопка назад -->
+  <button class="btn next">
+    <img src="./src/assets/vectors/next__button_right.svg" alt="" />
+  </button>
+  <div class="dots"></div>
+
+          </div>
+          
            
         </div>
       </div>
@@ -1200,60 +1180,60 @@ investmentButtons.forEach(button => {
   });
 });
   </script>
-   <script>
-    // слайдер
-    document.addEventListener("DOMContentLoaded", function () {
-      let carousel = document.querySelector(".big-slider__slider");
-      let items = carousel.querySelectorAll(".big-slider__slide");
-      let dotsContainer = document.querySelector(".dots");
-
-      // Insert dots into the DOM
-      items.forEach((_, index) => {
-        let dot = document.createElement("span");
-        dot.classList.add("dot");
-        if (index === 0) dot.classList.add("active");
-        dot.dataset.index = index;
-        dotsContainer.appendChild(dot);
-      });
-
-      let dots = document.querySelectorAll(".dot");
-
-      // Function to show a specific item
-      function showItem(index) {
-        items.forEach((item, idx) => {
-          item.classList.remove("active");
-          dots[idx].classList.remove("active");
-          if (idx === index) {
-            item.classList.add("active");
-            dots[idx].classList.add("active");
-          }
+     <script>
+      // слайдер
+      document.addEventListener("DOMContentLoaded", function () {
+        let carousel = document.querySelector(".carousel");
+        let items = carousel.querySelectorAll(".big-slider__slide");
+        let dotsContainer = document.querySelector(".dots");
+  
+        // Insert dots into the DOM
+        items.forEach((_, index) => {
+          let dot = document.createElement("span");
+          dot.classList.add("dot");
+          if (index === 0) dot.classList.add("active");
+          dot.dataset.index = index;
+          dotsContainer.appendChild(dot);
         });
-      }
-
-      // Event listeners for buttons
-      document.querySelector(".prev").addEventListener("click", () => {
-        let index = [...items].findIndex((item) =>
-          item.classList.contains("active")
-        );
-        showItem((index - 1 + items.length) % items.length);
-      });
-
-      document.querySelector(".next").addEventListener("click", () => {
-        let index = [...items].findIndex((item) =>
-          item.classList.contains("active")
-        );
-        showItem((index + 1) % items.length);
-      });
-
-      // Event listeners for dots
-      dots.forEach((dot) => {
-        dot.addEventListener("click", () => {
-          let index = parseInt(dot.dataset.index);
-          showItem(index);
+  
+        let dots = document.querySelectorAll(".dot");
+  
+        // Function to show a specific item
+        function showItem(index) {
+          items.forEach((item, idx) => {
+            item.classList.remove("active");
+            dots[idx].classList.remove("active");
+            if (idx === index) {
+              item.classList.add("active");
+              dots[idx].classList.add("active");
+            }
+          });
+        }
+  
+        // Event listeners for buttons
+        document.querySelector(".prev").addEventListener("click", () => {
+          let index = [...items].findIndex((item) =>
+            item.classList.contains("active")
+          );
+          showItem((index - 1 + items.length) % items.length);
+        });
+  
+        document.querySelector(".next").addEventListener("click", () => {
+          let index = [...items].findIndex((item) =>
+            item.classList.contains("active")
+          );
+          showItem((index + 1) % items.length);
+        });
+  
+        // Event listeners for dots
+        dots.forEach((dot) => {
+          dot.addEventListener("click", () => {
+            let index = parseInt(dot.dataset.index);
+            showItem(index);
+          });
         });
       });
-    });
-
-    // конец слайдера
-  </script>
+  
+      // конец слайдера
+    </script>
 </html>
