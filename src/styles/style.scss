@@ -30,6 +30,13 @@ body {
   max-width: 1300px;
   margin: 0 auto;
   padding: 0 20px;
+
+  
+ 
+  @media screen and (max-width: ($mobile-breakpoint + "px")) {
+    &__padding {
+padding-right: 0;    }
+}
 }
 
 .section {
@@ -77,6 +84,7 @@ body {
     height: $section-panel-height;
     color: $color-white;
     background: $color-bg-secondary;
+padding: 0 20px;
 
     &-logo {
       width: 76px;
@@ -873,6 +881,9 @@ body {
       border-radius: 24px;
     }
 
+    &-height{
+      height: 560px;
+    }
     &-img {
       position: relative;
       width: calc(50% - ($gap / 2));
@@ -922,12 +933,60 @@ body {
       img {
         height: 44px;
       }
+
+   
     }
 
     &-text {
       @include font-size("m");
     }
+    
   }
+  @media screen and (max-width: ($mobile-breakpoint + "px")) {
+    &__grid{
+       flex-direction: column;
+       gap: 8px;
+     
+       
+     
+
+     &-img {
+       width: 100%;
+     }
+
+     &-right{
+       flex-direction: column-reverse;
+
+ width: 100%;
+ gap: 8px;
+     }
+
+     &-top{
+       gap: 8px;
+       margin-bottom: 0;
+     }
+
+     &-text{
+      margin-top: 32px;
+     }
+   }
+  }
+
+  @media screen and (max-width: ($mobile-breakpoint + "px")) {
+    &__features{
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    &__feature{
+      width: 100%;
+      height: 90px;
+      display: flex;
+      justify-content: center;
+    }
+   
+    }
 }
 
 .big-slider {
@@ -939,13 +998,27 @@ body {
     display: flex;
     flex-wrap: nowrap;
     width: 100%;
+   
     overflow: hidden;
+
   }
 
   &__slide {
     display: flex;
     flex-shrink: 0;
     width: 100%;
+
+    // opacity: 0;
+    // display: none;
+    // transition: opacity 0.5s ease-in-out;
+
+  
+
+    // &.active {
+    //   opacity: 1;
+    //   display: flex;
+    // }
+  
   }
 
   &__image {
@@ -954,11 +1027,13 @@ body {
     height: 540px;
     overflow: hidden;
     border-radius: 24px;
-
+   position: relative;
     img {
       height: 100%;
       object-fit: cover;
     }
+
+    
   }
 
   &__text {
@@ -991,7 +1066,90 @@ body {
       @include font-size("s");
     }
   }
+
+  @media screen and (max-width: ($mobile-breakpoint + "px")) {
+     
+&__mobile-text{
+  display: none;
 }
+
+&__slider{
+  overflow-x: auto;
+}
+
+&__slide{
+     width: auto;
+    flex-direction: column; 
+    margin-right: 10px;
+  
+    &:last-child{
+      margin-right: 0;
+    }
+
+}
+
+&__image{
+  max-width: 320px;
+  height: auto;
+}
+
+&__text{
+  margin: 8px 0 0 0 ;
+  max-width: 320px;
+  width: 100%;
+}
+
+&__text-subtitle{
+  margin-bottom: 16px;
+}
+
+&__header{
+  margin-bottom: 24px;
+}
+
+}
+
+}
+
+  .btn {
+    padding: 1em 2em;
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 900;
+    color: #10100e;
+  
+    transition: transform 0.2s ease-in-out;
+    padding: 0;
+    width: 52px;
+    height: 52px;
+
+    &:active,
+    &:focus {
+      transform: translateY(-50%) scale(0.9);
+    }
+
+    &:hover {
+      transform: translateY(-50%) scale(0.96);
+    }
+  }
+
+
+  .prev {
+    left: 20px;
+  }
+
+  .next {
+    right: 20px;
+  }
+
+
+
 
 .area{
   &__container{
@@ -1129,7 +1287,6 @@ body {
       
     }
 
-    
 
     &-text {
       @include font-size("m");
@@ -1153,6 +1310,7 @@ body {
       display: flex;
       flex-direction: column;
       padding: 40px;
+      margin-right: 48px;
     }
 
     &-card-time{
@@ -1341,7 +1499,7 @@ top: -50px;
   &__container_flex {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 40px;
+    margin-bottom: 88px;
   }
 
   @media screen and (max-width: 1200px) {
@@ -1464,7 +1622,7 @@ margin-top: 24px;
   &__text {
     @include font-size("s", 500);
 
-    height: 108px;
+    height: 102px;
     color: $color-white;
   }
 
@@ -1556,7 +1714,7 @@ margin-top: 24px;
   }
 
   &__margin_left {
-    margin-right: 82px;
+    margin-right: 92px;
   }
 
   &__img {
@@ -1570,6 +1728,14 @@ margin-top: 24px;
     max-width: 96px;
     height: 44px;
     margin: 0 auto;
+
+    &-width{
+width: 72px;
+    }
+
+    &-width-2{
+      width: 51px;
+    }
   }
 
   &__title {
@@ -1637,7 +1803,7 @@ margin-top: 24px;
   &__section {
     position: relative;
     min-height: auto;
-    padding: 88px 0;
+    padding: 88px 0 70px;
     padding-top: 236px;
   }
 
@@ -1732,6 +1898,7 @@ margin-top: 24px;
 
   &__section {
     background-color: $color-white;
+    padding: 88px 0 70px;
   }
 
   &__cards {
@@ -1796,6 +1963,10 @@ margin-top: 24px;
   }
 
   @media screen and (max-width: ($mobile-breakpoint + "px")) {
+    &__section {
+   padding: 44px 0;
+    }
+   
     &__cards {
       flex-direction: column;
       margin-top: 24px;
@@ -1938,7 +2109,7 @@ margin-top: 24px;
       max-width: 100%;
       height: 242px;
       margin-top: 8px;
-
+      padding: 12px 72px 12px 12px;
       svg {
         width: 34px;
         height: 242px;
@@ -1951,6 +2122,10 @@ margin-top: 24px;
 
     &__desctiption {
       margin-top: 10px;
+    }
+
+    &__desctiption_3 {
+    max-height: 190px;
     }
   }
 }
@@ -2003,6 +2178,10 @@ margin-top: 24px;
 
     color: $color-text-secondary;
   }
+
+  &__padding{
+    padding-right: 0;
+        }
 
   @media screen and (max-width: ($mobile-breakpoint + "px")) {
     &__cards {
@@ -2143,7 +2322,7 @@ margin-top: 24px;
 
   @media screen and (max-width: ($mobile-breakpoint + "px")) {
     &__section {
-      padding: 200px 20px 0;
+      padding: 200px 0 0;
 
       &::before {
         background: rgb(35 35 35 / 30%);
@@ -2181,9 +2360,16 @@ margin-top: 24px;
       margin-bottom: 24px;
     }
 
-    &__block {
-      padding: 0;
+    &__input{
+      padding: 12px 16px;
     }
+
+    &__block {
+      padding-top: 30px;
+      padding-bottom: 10px;
+    }
+
+ 
   }
 }
 
