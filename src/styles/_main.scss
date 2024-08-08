@@ -123,7 +123,7 @@ $default-font-size: (
     @each $breakpoint, $font-size in $custom-sizes {
       @if $breakpoint > $mobile-breakpoint {
         @media screen and (max-width: ($breakpoint + "px")) {
-          @include make-font-size($font-size, $weight);
+          @include make-font-size(map.get($default-font-size, $font-size, "desktop"), $weight);
         }
       }
 
@@ -137,8 +137,16 @@ $default-font-size: (
         }
 
         @media screen and (max-width: ($breakpoint + "px")) {
-          @include make-font-size($font-size, $weight);
+          @include make-font-size(map.get($default-font-size, $font-size, "mobile"), $weight);
         }
+      }
+    }
+
+    @if $mobile_included == 0 {
+      $mobile_included: 1;
+
+      @media screen and (max-width: ($mobile-breakpoint + "px")) {
+        @include make-font-size($mobile, $weight);
       }
     }
   }

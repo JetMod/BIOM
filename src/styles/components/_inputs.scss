@@ -22,6 +22,7 @@
     padding: 15px 40px;
 
     @include font-size("s", 500);
+
     @media screen and (max-width: (1200px)) {
       padding: 15px 20px;
     }
@@ -30,7 +31,6 @@
       padding: 15px 10px;
       font-size: 17px;
     }
-
   }
 
   &_size_medium {
