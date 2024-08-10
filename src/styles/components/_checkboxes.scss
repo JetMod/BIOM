@@ -14,7 +14,7 @@
 
     position: relative;
     display: inline-block;
-    height: 21px;
+    height: 23px;
     margin: 0;
     vertical-align: top;
     background: var(--b, var(--background));
@@ -22,7 +22,6 @@
     outline: none;
     cursor: pointer;
     transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
-    appearance: none;
     appearance: none;
 
     &::after {
@@ -71,8 +70,8 @@
     }
 
     &:not(.switch) {
-      width: 21px;
-      min-width: 21px;
+      width: 23px;
+      min-width: 23px;
 
       &::after {
         opacity: var(--o, 0);
@@ -86,23 +85,23 @@
 
     & + label {
       display: inline-block;
-      margin-left: 4px;
-      font-size: 14px;
-      line-height: 21px;
+      margin-left: 9px;
       vertical-align: top;
       cursor: pointer;
+
+      @include font-size("xs");
     }
   }
 
   input[type="checkbox"] {
     &:not(.switch) {
-      border-radius: 7px;
+      border-radius: 4px;
 
       &::after {
         top: 4px;
-        left: 7px;
-        width: 5px;
-        height: 9px;
+        left: 8px;
+        width: 6px;
+        height: 11px;
         border: 2px solid var(--active-inner);
         border-top: 0;
         border-left: 0;
