@@ -546,7 +546,6 @@ body {
 .header__burger {
   display: flex;
   flex-direction: row-reverse;
-  align-items: center;
   font-size: 19px;
   line-height: 140%;
   font-weight: 500;
