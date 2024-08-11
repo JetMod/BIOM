@@ -155,3 +155,15 @@ window.addEventListener('load', function() {
         });
     }    
 });
+
+
+window.addEventListener('load', function() {
+    const scrollBtns = document.querySelectorAll('.scroll-button');
+    const targetElement = document.querySelector('.feedback__section');
+
+    scrollBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+})
