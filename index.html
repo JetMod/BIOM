@@ -398,8 +398,15 @@
 		<section class="section real__section">
 			<div class="container">
 				<h2 class="section__header real__header">Real Estates</h2>
+				<div class="real__categories">
+					<div class="real__category real__category_active" data-id="all">All</div>
+					<div class="real__category" data-id="studios">Studios</div>
+					<div class="real__category" data-id="apartments">Apartments</div>
+					<div class="real__category" data-id="townhouse">Townhouse</div>
+					<div class="real__category" data-id="villas">Villas</div>
+				</div>
 				<div class="real__flats">
-					<div class="real__flat">
+					<div class="real__flat" data-id="studios">
 						<div class="real__flat-container">
 							<div class="real__flat-mini">
 								<div class="real__flat-slider">
@@ -481,7 +488,7 @@
 									</div>
 
 									<div class="real__flat__form-checkbox">
-										<input
+										<div class="real__flat__form-checkbox-wrapper"><input
 											type="checkbox"
 											id="horns"
 											name="horns"
@@ -491,7 +498,7 @@
 											<a href="#"
 												>processing of personal data</a
 											>
-										</label>
+										</label></div>
 
 										<button
 											class="button button_view_primary button_size_large real__flat__form-button"
@@ -503,7 +510,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="real__flat">
+					<div class="real__flat" data-id="apartments">
 						<div class="real__flat-container">
 							<div class="real__flat-mini">
 								<div class="real__flat-slider">
@@ -587,7 +594,7 @@
 									</div>
 
 									<div class="real__flat__form-checkbox">
-										<input
+										<div class="real__flat__form-checkbox-wrapper"><input
 											type="checkbox"
 											id="horns"
 											name="horns"
@@ -597,7 +604,7 @@
 											<a href="#"
 												>processing of personal data</a
 											>
-										</label>
+										</label></div>
 
 										<button
 											class="button button_view_primary button_size_large real__flat__form-button"
@@ -611,7 +618,7 @@
 					</div>
 				</div>
 				<div class="real__flats">
-					<div class="real__flat">
+					<div class="real__flat" data-id="townhouse">
 						<div class="real__flat-container">
 							<div class="real__flat-mini">
 								<div class="real__flat-slider">
@@ -695,7 +702,7 @@
 									</div>
 
 									<div class="real__flat__form-checkbox">
-										<input
+										<div class="real__flat__form-checkbox-wrapper"><input
 											type="checkbox"
 											id="horns"
 											name="horns"
@@ -705,7 +712,7 @@
 											<a href="#"
 												>processing of personal data</a
 											>
-										</label>
+										</label></div>
 
 										<button
 											class="button button_view_primary button_size_large real__flat__form-button"
@@ -717,7 +724,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="real__flat">
+					<div class="real__flat" data-id="villas">
 						<div class="real__flat-container">
 							<div class="real__flat-mini">
 								<div class="real__flat-slider">
@@ -801,7 +808,7 @@
 									</div>
 
 									<div class="real__flat__form-checkbox">
-										<input
+										<div class="real__flat__form-checkbox-wrapper"><input
 											type="checkbox"
 											id="horns"
 											name="horns"
@@ -811,7 +818,7 @@
 											<a href="#"
 												>processing of personal data</a
 											>
-										</label>
+										</label></div>
 
 										<button
 											class="button button_view_primary button_size_large real__flat__form-button"
@@ -1080,7 +1087,6 @@
 							alt=""
 						/>
 					</button>
-					<div class="dots"></div>
 				</div>
 			</div>
 		</section>

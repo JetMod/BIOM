@@ -22,29 +22,28 @@ window.addEventListener('load', function() {
 });
 
 window.addEventListener('load', function() {
+    var columnsContainer = document.querySelector('.columns__container');
+    var offsetTop = columnsContainer.getBoundingClientRect().top + (columnsContainer.scrollHeight / 2);
+    var scrolled = false;
+    window.onscroll = function(ev) {
+        if (!scrolled && (window.innerHeight + window.scrollY) >= offsetTop) {
+            scrolled = true;
+
+            columnsContainer.classList.add('columns__container_anim_start');
+        }
+    };
+});
+
+window.addEventListener('load', function() {
     let carousel = document.querySelector(".carousel");
     let items = carousel.querySelectorAll(".big-slider__slide");
-    let dotsContainer = document.querySelector(".dots");
-
-    // Insert dots into the DOM
-    items.forEach((_, index) => {
-        let dot = document.createElement("span");
-        dot.classList.add("dot");
-        if (index === 0) dot.classList.add("active");
-        dot.dataset.index = index;
-        dotsContainer.appendChild(dot);
-    });
-
-    let dots = document.querySelectorAll(".dot");
 
     // Function to show a specific item
     function showItem(index) {
         items.forEach((item, idx) => {
         item.classList.remove("active");
-        dots[idx].classList.remove("active");
         if (idx === index) {
             item.classList.add("active");
-            dots[idx].classList.add("active");
         }
         });
     }
@@ -63,17 +62,7 @@ window.addEventListener('load', function() {
         );
         showItem((index + 1) % items.length);
     });
-
-    // Event listeners for dots
-    dots.forEach((dot) => {
-        dot.addEventListener("click", () => {
-            let index = parseInt(dot.dataset.index);
-            showItem(index);
-        });
-    });
 });
-
-
 
 window.addEventListener('load', function() {
     const investmentButtons = document.querySelectorAll('.investment__button');
@@ -89,4 +78,80 @@ window.addEventListener('load', function() {
         }
     });
     });
+});
+
+window.addEventListener('load', function() {
+    var allId = "all";
+    var flatsWrappers = document.querySelectorAll('.real__flats');
+    var flats = {};
+    var categories = {};
+    var header = document.querySelector('.real__header');
+
+    document.querySelectorAll('.real__category').forEach(category => {
+        categories[category.dataset.id] = category;
+    });
+
+    document.querySelectorAll('.real__flat').forEach(flat => {
+        flats[flat.dataset.id] = flat;
+    });
+
+    Object.keys(flats).forEach(flatKey => {
+        flats[flatKey]
+            .querySelector('.real__flat-mini .button')
+            .addEventListener('click', () => activateFlat(flats[flatKey].dataset.id));     
+    })
+
+    Object.keys(categories).forEach(categoryKey => {
+        categories[categoryKey]
+            .addEventListener('click', () => {
+                var id = categories[categoryKey].dataset.id;
+                resetFlats();
+
+                if (id !== allId) {
+                    activateFlat(id);
+                }
+            });
+    })
+
+    function resetFlats() {
+        Object.keys(categories).forEach(categoryKey => {
+            categories[categoryKey].classList.remove('real__category_active');
+        });
+        categories[allId].classList.add('real__category_active');
+
+        Object.keys(flats).forEach(elKey => {
+            flats[elKey].classList.remove('real__flat_active');
+            flats[elKey].classList.remove('real__flat_disable');
+        });
+
+        flatsWrappers.forEach(wrapper => {
+            wrapper.classList.remove('real__flats_disable');
+        });
+    }    
+
+    function activateFlat(id) {
+        Object.keys(categories).forEach(categoryKey => {
+            categories[categoryKey].classList.remove('real__category_active');
+        });
+        categories[id].classList.add('real__category_active');
+
+        Object.keys(flats).forEach(elKey => {
+            if(id == elKey) return;
+
+            flats[elKey].classList.remove('real__flat_active');
+            flats[elKey].classList.add('real__flat_disable');
+        });
+
+        flatsWrappers.forEach(wrapper => {
+            if (wrapper != flats[id].parentNode) {
+                wrapper.classList.add('real__flats_disable');
+            }
+        });
+
+        flats[id].classList.add('real__flat_active');
+        header.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }    
 });
