@@ -1,4 +1,18 @@
-window.addEventListener('load', function() {
+function debounce(callee, timeoutMs) {
+    return function perform(...args) {
+      let previousCall = this.lastCall
+  
+      this.lastCall = Date.now()
+  
+      if (previousCall && this.lastCall - previousCall <= timeoutMs) {
+        clearTimeout(this.lastCallTimer)
+      }
+  
+      this.lastCallTimer = setTimeout(() => callee(...args), timeoutMs)
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.slider__card').forEach(function(card) {
         card.addEventListener('mouseover', function() {
             document.querySelectorAll('.slider__card.active').forEach(function(el) {
@@ -13,7 +27,7 @@ window.addEventListener('load', function() {
 });
 
 
-window.addEventListener('load', function() {
+document.addEventListener('DOMContentLoaded', () => {
     const langBtn = document.querySelector(".header__button_language");
 
     langBtn.addEventListener("click", function () {
@@ -21,7 +35,7 @@ window.addEventListener('load', function() {
     });
 });
 
-window.addEventListener('load', function() {
+document.addEventListener('DOMContentLoaded', () => {
     var columnsContainer = document.querySelector('.columns__container');
     var offsetTop = columnsContainer.getBoundingClientRect().top + (columnsContainer.scrollHeight / 2);
     var scrolled = false;
@@ -34,7 +48,7 @@ window.addEventListener('load', function() {
     };
 });
 
-window.addEventListener('load', function() {
+document.addEventListener('DOMContentLoaded', () => {
     let carousel = document.querySelector(".carousel");
     let items = carousel.querySelectorAll(".big-slider__slide");
 
@@ -64,23 +78,17 @@ window.addEventListener('load', function() {
     });
 });
 
-window.addEventListener('load', function() {
+document.addEventListener('DOMContentLoaded', () => {
     const investmentButtons = document.querySelectorAll('.investment__button');
 
     investmentButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        button.previousElementSibling.classList.toggle('show');
-
-        if (button.previousElementSibling.classList.contains('show')) {
-            button.innerHTML = 'Show Less <img src="./src/assets/vectors/investment__img_close.svg" class="investment__img_open">';
-        } else {
-            button.innerHTML = 'Show More <img src="./src/assets/vectors/investment__img_open.svg" class="investment__img_open">';
-        }
-    });
+        button.addEventListener('click', () => {
+            button.previousElementSibling.classList.toggle('show');
+        });
     });
 });
 
-window.addEventListener('load', function() {
+document.addEventListener('DOMContentLoaded', () => {
     var allId = "all";
     var flatsWrappers = document.querySelectorAll('.real__flats');
     var flats = {};
@@ -156,8 +164,7 @@ window.addEventListener('load', function() {
     }    
 });
 
-
-window.addEventListener('load', function() {
+document.addEventListener('DOMContentLoaded', () => {
     const scrollBtns = document.querySelectorAll('.scroll-button');
     const targetElement = document.querySelector('.feedback__section');
 
@@ -166,4 +173,44 @@ window.addEventListener('load', function() {
         targetElement.scrollIntoView({ behavior: 'smooth' });
       });
     });
+})
+
+document.addEventListener('DOMContentLoaded', () => {
+    const button = document.querySelector('.feedback__section .feedback__button');
+
+    button.addEventListener('click', () => {
+        document.querySelectorAll('.feedback__section .feedback__input').forEach(input => {
+            input.value = "";
+        });
+        document.querySelectorAll('.feedback__section .feedback__checkbox').forEach(checkbox => {
+            checkbox.checked = false;
+        });
+    });
+})
+
+document.addEventListener('DOMContentLoaded', () => {
+    if (window.innerWidth < 768) {
+        var minDistance = Infinity;
+        var minDistanceCard = undefined;
+        var cards = document.querySelectorAll('.slider__card');
+
+        const debouncedScroll = debounce((event) => {
+            cards.forEach(card => {
+                var bounds = card.getBoundingClientRect();
+                var cardCenter = bounds.left + (card.clientWidth / 2);
+                var distance = Math.abs((window.innerWidth / 2) - cardCenter);
+                if (minDistance > distance) {
+                    minDistance = distance;
+                    minDistanceCard = card;
+                }
+            })
+        
+            cards.forEach(card => {
+                card.classList.remove('active');
+            });
+            minDistanceCard.classList.add('active');
+        }, 50);
+
+        document.querySelector('.slider__main').addEventListener("scroll", debouncedScroll);
+    }
 })
